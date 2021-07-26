@@ -52,7 +52,7 @@ class Drone_message():
 
     def PacketTojson_MESSAGE(self):
         self.timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
-        drone_msg_dict = {'timestamp':self.timestamp, 'location':self.location, 'battery':self.battery,
+        drone_msg_dict = {'timestamp':self.timestamp, 'drone_id':"airsim_simulation", 'location':self.location, 'battery':self.battery,
                         'speed':self.speed, 'attitude':self.attitude, 'gps_status':self.gps_status,
                         'heartbeat':self.heartbeat}
         drone_msg_dict_ = {'type':'message','drone_info':drone_msg_dict}
