@@ -28,28 +28,26 @@ pip install pika
 ```
 ### How to use
 
-1. Run Ardupilot SITL by using this command ***sim_vehicle.py -v ArduCopter --console --custom-location=25.043014,121.536216,10,90*** on Linux terminal.
+★ Run Ardupilot SITL by using this command ***sim_vehicle.py -v ArduCopter --console --custom-location=25.043014,121.536216,10,90*** on Linux terminal.
 
 ![](https://i.imgur.com/0aSJuM0.jpg)
 
-2. Run ```__init__.py``` 
+★ Run ```__init__.py``` 
 
 ### Reference
-1. You can change the ArduPilot SITL IP & port from ```__init__.py```
+★ You can change the ArduPilot SITL IP & port from ```__init__.py```
 ```python=1
 CONNECTION_STRING = '127.0.0.1:14551'
 ```
-2. You can change the RabbitMQ IP & port and user name & pwd from ```RabbitMQ.py```
+★ You can change the RabbitMQ IP & port and user name & pwd from ```RabbitMQ.py```
 ```python=1
 auth = pika.PlainCredentials('aiotlab', 'aiotlab208')
 parameters= pika.ConnectionParameters(host='aiotlab-drone-cloud.ga', port=5672, virtual_host='/', credentials=auth)
 connection = pika.BlockingConnection(parameters)
 ```
-3. If you want to listen additional MAVLink Message, refer to the example code from [Dronekit Github.](https://github.com/dronekit/dronekit-python/blob/master/examples/create_attribute/create_attribute.py)
+★ If you want to listen additional MAVLink Message, refer to the example code from [Dronekit Github.](https://github.com/dronekit/dronekit-python/blob/master/examples/create_attribute/create_attribute.py)
 
-***For example, GLOBAL_POSITION_INT ( #33 )*** 
-
-First, add the custom classq and listener in ```my_vehicle.py``` 
+***For example, GLOBAL_POSITION_INT ( #33 )***  First, add the custom class and listener in ```my_vehicle.py``` 
 
 ```python=1
 class GLOBAL_POSITION_INT(object):
@@ -106,7 +104,7 @@ drone = connect(CONNECTION_STRING, wait_ready=True, vehicle_class=MyVehicle)
 drone_msg = Drone_message(vehicle=drone, rabbitmq=rabbitmq_producer)
 drone.add_attribute_listener('GLOBAL_POSITION_INT', drone_msg.GLOBAL_POSITION_INT_callback)
 ```
-6. If you want to use addtional MAVLink command, pls refer to ```drone_command.py```, In most cases, you can use only ***COMMAND_LONG ( #76 )*** message to wrap the command you want to use and the parameters. MAVLink Command can be found in [MAVLink offcial website.](https://mavlink.io/en/messages/common.html#mav_commands)
+★ If you want to use other MAVLink Command, pls refer to ```drone_command.py```, In most cases, you can use only ***COMMAND_LONG ( #76 )*** message to wrap the command you want to use and the parameters. MAVLink Command can be found in [MAVLink offcial website.](https://mavlink.io/en/messages/common.html#mav_commands)
 
 ```python=1
 def ARM_DISARM(self, is_armed):
@@ -124,9 +122,6 @@ def ARM_DISARM(self, is_armed):
 Refer to https://github.com/aiortc/aiortc/tree/main/examples/webcam
 ```
 pip install aiortc opencv-python av
-```
-```
-pip install "python-socketio[asyncio_client]"
 ```
 ```
 pip install airsim

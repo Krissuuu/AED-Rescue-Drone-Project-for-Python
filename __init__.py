@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     while True:
         try:
-            print("isConneting. . .")
+            print("is Conneted. . .")
             sleep(10)
         except KeyboardInterrupt:
             break
