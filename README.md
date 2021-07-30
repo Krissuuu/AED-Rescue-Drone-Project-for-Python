@@ -5,7 +5,7 @@
 - [WebRTC + AirSim](#C)
 - [Test Environment](#D)
 - [DEMO Video](#E)
-
+- [Reference](#F)
 
 ## *<a id="A">Build ArduPilot SITL</a>*
 1. ***If you use Linux pls skip this step***, Install WSL (Win10 Subsystem).
@@ -18,11 +18,9 @@
 ## *<a id="B">Control Program</a>*
 
 ### Prerequisites
-Refer to https://github.com/dronekit/dronekit-python
 ```
 pip install dronekit
 ```
-Refer to https://www.rabbitmq.com/tutorials/tutorial-five-python.html
 ```
 pip install pika
 ```
@@ -205,4 +203,10 @@ yarl                  1.6.3
 ## *<a id="E">DEMO Video</a>*
 
 https://youtu.be/3q5TWYXFUhI
+
+## *<a id="F">Reference</a>*
+
+1. https://github.com/dronekit/dronekit-python
+2. https://www.rabbitmq.com/tutorials/tutorial-five-python.html
+3. https://github.com/aiortc/aiortc/tree/main/examples/webcam
 
